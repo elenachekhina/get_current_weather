@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Information</title>
+</head>
+<body>
+
+<h2>Enter a City to Get the Current Weather:</h2>
+
+<label for="cityInput">City:</label>
+<input type="text" id="cityInput" placeholder="Enter city name">
+
+<button onclick="getWeather()">Get Weather</button>
+
+<h3>Weather Information:</h3>
+<textarea id="weatherInfo" rows="10" cols="50" readonly></textarea>
+
+<script>
+    function getWeather() {
+        const cityInputElem = document.getElementById('cityInput');
+        const city = cityInputElem.value;
+        if (!city) {
+            alert("Please enter a city name.");
+            return;
+        }
+
+        const apiUrl = 'https://uqc0rjefp1.execute-api.us-east-1.amazonaws.com/v1/getCurrentWeather?city=' + city;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+
+                if (data.city) {
+                    let parsedWeatherInfo = `
+City: ${data.city}
+Temperature: ${data.temperature} C
+Weather condition: ${data.weatherCondition.type}
+
+Wind: ${data.wind.speed} km/h
+Wind direction: ${getWindDirection(data.wind.direction)}
+Pressure: ${data.weatherCondition.pressure}
+Humidity: ${data.weatherCondition.humidity}
+                `;
+
+                    document.getElementById('weatherInfo').textContent = parsedWeatherInfo;
+                } else {
+                    document.getElementById('weatherInfo').textContent = data;
+                }
+                cityInputElem.value = '';
+            })
+            .catch(error => {
+                console.error('Error fetching weather:', error);
+                document.getElementById('weatherInfo').textContent = 'Error fetching weather';
+                cityInputElem.value = '';
+            });
+    }
+
+    function getWindDirection(direction) {
+        const windDirections = {
+            "N": "North",
+            "NE": "North East",
+            "E": "East",
+            "SE": "South East",
+            "S": "South",
+            "SW": "South West",
+            "W": "West",
+            "NW": "North West"
+        };
+        return windDirections[direction] || direction;
+    }
+
+</script>
+
+</body>
+</html>
+
