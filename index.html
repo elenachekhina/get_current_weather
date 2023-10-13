@@ -26,6 +26,12 @@
             return;
         }
 
+        const regex = /^[a-zA-Z0-9\s]*$/;
+        if (!regex.test(city)) {
+            alert("Please enter a valid city name with only English letters.");
+            return;
+        }
+
         const apiUrl = 'https://uqc0rjefp1.execute-api.us-east-1.amazonaws.com/v1/getCurrentWeather?city=' + city;
 
         fetch(apiUrl)
