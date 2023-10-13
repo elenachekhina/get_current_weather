@@ -39,7 +39,7 @@ Temperature: ${data.temperature} C
 Weather condition: ${data.weatherCondition.type}
 
 Wind: ${data.wind.speed} km/h
-Wind direction: ${getWindDirection(data.wind.direction)}
+Wind direction: ${data.wind.direction} (${getWindDirection(data.wind.direction)})
 Pressure: ${data.weatherCondition.pressure}
 Humidity: ${data.weatherCondition.humidity}
                 `;
