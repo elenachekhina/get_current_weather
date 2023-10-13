@@ -2,11 +2,11 @@ require 'net/http'
 require 'uri'
 require 'aws_secretmanager'
 
-$direction = %w[N NE E SE S SW W NW]
-$api_key = get_secret('openweathermap')
+DIRECTION = %w[N NE E SE S SW W NW].freeze
+API_KEY = get_secret('openweathermap')
 
 def get_api_weather(city)
-  url = URI.parse("https://api.openweathermap.org/data/2.5/weather?q=#{city}&units=metric&appid=#{$api_key}")
+  url = URI.parse("https://api.openweathermap.org/data/2.5/weather?q=#{city}&units=metric&appid=#{API_KEY}")
   http = Net::HTTP.new(url.host, url.port)
   http.use_ssl = true
 
@@ -31,7 +31,7 @@ def process_response(response)
     },
     wind: {
       speed: body['wind']['speed'],
-      direction: $direction[(body['wind']['deg'] / 45) % 8]
+      direction: DIRECTION[(body['wind']['deg'] / 45) % 8]
     }
   }.to_json
 end
