@@ -1,5 +1,5 @@
-require 'open_weather_api'
-require 'redis_cache'
+require_relative 'open_weather_api'
+require_relative 'redis_cache'
 
 def get_weather_data(city)
   cached_wether = get_cached_wether(city)

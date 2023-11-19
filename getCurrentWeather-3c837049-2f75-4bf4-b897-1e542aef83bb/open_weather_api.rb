@@ -1,6 +1,6 @@
 require 'net/http'
 require 'uri'
-require 'aws_secretmanager'
+require_relative 'aws_secretmanager'
 
 DIRECTION = %w[N NE E SE S SW W NW].freeze
 API_KEY = get_secret('openweathermap')

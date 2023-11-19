@@ -1,0 +1,18 @@
+current directory: /Users/echekhina/Desktop/get_current_weather/get_current_weather/getCurrentWeather-3c837049-2f75-4bf4-b897-1e542aef83bb/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+/Users/echekhina/.rvm/rubies/ruby-3.2.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/echekhina/Desktop/get_current_weather/get_current_weather/getCurrentWeather-3c837049-2f75-4bf4-b897-1e542aef83bb/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231118-98261-dbw5vt sitelibdir\=./.gem.20231118-98261-dbw5vt clean
+
+current directory: /Users/echekhina/Desktop/get_current_weather/get_current_weather/getCurrentWeather-3c837049-2f75-4bf4-b897-1e542aef83bb/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231118-98261-dbw5vt sitelibdir\=./.gem.20231118-98261-dbw5vt
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+
+current directory: /Users/echekhina/Desktop/get_current_weather/get_current_weather/getCurrentWeather-3c837049-2f75-4bf4-b897-1e542aef83bb/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231118-98261-dbw5vt sitelibdir\=./.gem.20231118-98261-dbw5vt install
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 cparse.bundle ./.gem.20231118-98261-dbw5vt/racc
+
+current directory: /Users/echekhina/Desktop/get_current_weather/get_current_weather/getCurrentWeather-3c837049-2f75-4bf4-b897-1e542aef83bb/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231118-98261-dbw5vt sitelibdir\=./.gem.20231118-98261-dbw5vt clean

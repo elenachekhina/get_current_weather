@@ -1,4 +1,5 @@
 require 'aws-sdk-secretsmanager'
+require 'json'
 
 def get_secret(secret_key)
   client = Aws::SecretsManager::Client.new(region: 'us-east-1')
