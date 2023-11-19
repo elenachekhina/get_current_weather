@@ -25,11 +25,10 @@ RSpec.describe 'Open Weather API' do
       result = JSON.parse(get_api_weather('New York'))
       expect(result['city']).to eq('New York')
     end
-
   end
 
   describe 'process_response' do
-    let(:success_response) {
+    let(:success_response) do
       double('response',
              body: {
                'name' => 'New York',
@@ -37,16 +36,14 @@ RSpec.describe 'Open Weather API' do
                'weather' => [{ 'main' => 'Cloudy' }],
                'wind' => { 'speed' => 5.5, 'deg' => 90 }
              }.to_json,
-             code: '200'
-      )
-    }
+             code: '200')
+    end
 
-    let(:not_found_response) {
+    let(:not_found_response) do
       double('response',
              body: { 'message' => 'City not found' }.to_json,
-             code: '404'
-      )
-    }
+             code: '404')
+    end
 
     context 'when the response code is 200' do
       it 'returns the correct weather data' do

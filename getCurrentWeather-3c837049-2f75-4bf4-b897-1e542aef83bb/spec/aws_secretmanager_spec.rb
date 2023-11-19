@@ -15,4 +15,3 @@ RSpec.describe 'AWS Secret Manager' do
     end
   end
 end
-

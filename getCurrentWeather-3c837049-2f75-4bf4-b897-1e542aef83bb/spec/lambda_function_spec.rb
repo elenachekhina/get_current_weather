@@ -15,23 +15,23 @@ RSpec.describe 'Lambda' do
   end
 
   describe 'lambda_handler' do
-    let(:success_event) {
+    let(:success_event) do
       {
         'queryStringParameters' => {
           'city' => 'New York'
         }
       }
-    }
+    end
 
-    let(:not_found_event) {
+    let(:not_found_event) do
       {
         'queryStringParameters' => {
           'city' => 'City'
         }
       }
-    }
+    end
 
-    let(:success_response) {
+    let(:success_response) do
       {
         statusCode: 200,
         body: {
@@ -48,14 +48,14 @@ RSpec.describe 'Lambda' do
           }
         }.to_json
       }
-    }
+    end
 
-    let(:not_found_response) {
+    let(:not_found_response) do
       {
         statusCode: 200,
         body: 'City not found'.to_json
       }
-    }
+    end
 
     context 'when the city is found' do
       before do
@@ -118,4 +118,3 @@ RSpec.describe 'Lambda' do
     end
   end
 end
-

@@ -17,9 +17,7 @@ end
 
 def process_response(response)
   body = JSON.parse(response.body)
-  if response.code == '404'
-    return body['message'].to_json
-  end
+  return body['message'].to_json if response.code == '404'
 
   {
     city: body['name'],
